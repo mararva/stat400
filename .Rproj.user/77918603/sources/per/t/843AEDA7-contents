@@ -1,0 +1,59 @@
+# Chapter 2: Names and Values
+
+-   What are the rules for object names, and what happens if you try to use a not-allowed name with \<- or with make.names()?
+
+    -   A syntactic name consists of letters, numbers, `.` and `_`, and cannot begin with a number or `_`. Additionally, it cannot be a reserved word like TRUE, NULL, if, function and other words listed in ?reserved. When you try to use a name that is not syntactic, you get an error.
+
+-   What does *copy-on-modify* mean and why is it important for designing fast/efficient code?
+
+    -   Copy-on-modify means that modifying one object that was a copy of another doesn't modify the original object. This is useful because it allows you to edit an instance of an object without modifying the original.
+
+-   Why might the size of a *list* seem surprisingly small, even if it contains large objects?
+
+    -   The elements in a list are just references to values.
+
+# Chapter 3: Vectors
+
+-   What is the relationship between vectors, lists, matrices, and data frames?
+
+    -   A list is a type of vector, a matrix is a vector with a dim attribute attached, and a data frame is a named list of vectors with attributes for column names, row names, and the class "data.frame"
+
+-   What are *attributes*?  How can you modify them?
+
+    -   Attributes attach metadata to an object, they can be retrieved with attr().
+
+-   What is special about the attribute called "class"?
+
+    -   the class attribute turns an object into an S3 object, which behaves differently from a regular vector.
+
+-   What is dangerous about stringsAsFactors?  (Hint: What is the *type* for factors?)
+
+    -   Some functions will convert all character strings to factors, which may be unintended.
+
+# Chapter 4: Subsetting
+
+-   What are the six ways of subsetting vectors?
+
+    -   Positive integers return elements at the specified positions
+
+    -   Negative integers returning everything besides the specified positions.
+
+    -   Logical vectors select elements where the logical value is true.
+
+    -   Nothing returns the original vector.
+
+    -   Zero returns a zero length vector.
+
+    -   Character vectors return elements with matching characters.
+
+-   When should you use drop = FALSE?
+
+    -   When you want to preserve the original dimensionality.
+
+-   What is *recycling* and in what circumstances does it occur?
+
+    -   Recycling happens when two vectors have different lengths. The shorter vector's length will be recycled to the length of the longer one.
+
+-   What are the functions pluck() and chuck() useful for?
+
+    -   pluck() is useful for indexing into deeply nested data structures where the component you want may not exist. chuck() does the same as pluck() but returns an error instead of NULL if there is a missing element.
