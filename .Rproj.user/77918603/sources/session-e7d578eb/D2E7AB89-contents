@@ -1,0 +1,35 @@
+# **Chapter 9: Functionals: Examples to Explore**
+
+[Here is a link to the GitHub site for the purrr package.Links to an external site.](https://github.com/tidyverse/purrr/blob/main/R "Link")
+
+Questions:
+
+-   Can you find the source file for the "-ly" functions.  What is the purpose of these, and why might they be useful?
+
+    -   These adverb functions modify existing functions to b more useful in this package.
+
+-   Can you find the source code written in C for the basic \`map()\` function?
+
+    -   the source code is in "main/src/map.c"
+
+-   Find the source code for \`map\_()\` function.  What is the purpose of this function?
+
+    -   "main/R/map.R" This function is like map() but takes more arguments and has an argument to set the type of the output.
+
+[Here is a great blog post about Split-Apply-Combine and Map-ReduceLinks to an external site.](https://burtmonroe.github.io/SoDA501/Materials/SplitApplyCombine_R/ "Link")
+
+Questions:
+
+-   What is the main difference between an apply/map process and a reduce process?
+
+    -   apply/map processes don't aggregate data, while reduce processes do.
+
+-   What are some options when you want to use a functional, but no named function exists to input to the functional that does exactly what you need?
+
+    -   anonymous function
+
+    -   using \~
+
+    -   do.call
+
+    -   combining functions
