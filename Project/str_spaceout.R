@@ -4,7 +4,7 @@
 #' `str_spaceout()` adds a space wherever a lowercase letter is followed by an 
 #' uppercase letter, with modifiable functionality for special cases.
 #'
-#' By changing the parameter `split_style`, the placement of splits can be 
+#' @param split_style controls the placement of splits and can be 
 #' modified to the following styles:
 #' `acronyms`: splits at lowercase-uppercase and between two uppercase letters 
 #' followed by lowercase,
@@ -12,9 +12,10 @@
 #' `default`: splits only when a lowercase letter is succeeded by an uppercase letter
 #' `everything`: splits between every character
 #' 
-#' The parameter `split_char` controls the character that splits words.
+#' @param split_char controls the character that splits words.
 #' This defaults to space but can be changed to anything.
 #'
+#' @seealso [str_indent()] to add tabs between words.
 #' @export
 #' @examples
 #' input <- "XMLHTTPRequestAndHTMLParser"

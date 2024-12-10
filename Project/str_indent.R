@@ -1,37 +1,27 @@
 #' Indent multiple strings
 #'
 #' @description
-#' `str_indent()` adds a space wherever a lowercase letter is followed by an 
-#' uppercase letter, with modifiable functionality for special cases.
-#'
-#' By changing the parameter `split_style`, the placement of splits can be 
-#' modified to the following styles:
-#' `acronyms`: splits at lowercase-uppercase and between two uppercase letters 
-#' followed by lowercase,
-#' `allcaps`: splits between all consecutive uppercase letters
-#' `default`: splits only when a lowercase letter is succeeded by an uppercase letter
-#' `everything`: splits between every character
-#'
+#' `str_indent()` adds a customizable amount of spaces (or other characters) 
+#' before every word, as if it was tabbed, and puts every word on a new line.
+#' @param indent_level controls the number of characters to add, 
+#' @param indent_character controls what character is placed.
+#' @returns a newline separated list of words with a 'tab' character in between
+#' @seealso [str_spaceout()] to add spaces between words.
 #' @export
 #' @examples
-#' input <- "XMLHTTPRequestAndHTMLParser"
-#' # Default splitting
-#' str_spaceout(input, split_style = "default")
-#' # Split acronyms
-#' str_spaceout(input, split_style = "acronyms")
-#' # Split all consecutive uppercase letters
-#' str_spaceout(input, split_style = "allcaps")
-#' # Split every character
-#' str_spaceout(input, split_style = "everything")
-#'
-
-# Based off of this code from Colin Fraser here:
-# https://github.com/tidyverse/stringr/issues/480
-# which I edited to not call any other packages.
+#' x <- c("why", "video", "cross", "extra", "deal", "authority")
+#' # Default options
+#' str_indent(x)
+#' # Extra indentation
+#' str_indent(x, indent_level = 4)
+#' # Using periods for visibility
+#' str_indent(x, indent_character = '.')
+#' # Both parameters changed
+#' str_indent(x, indent_level = 6, indent_character = '.')
 
 str_indent <- function(x, indent_level = 3, indent_character = ' ') {
   # If vector not atomic, turns it into a single string separated by newlines
-  if (length(x)>=2) {
+  if (length(x) >= 2) {
     xcat <- paste(x, collapse = "\n")
   }
   if (indent_level < 0) {
