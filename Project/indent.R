@@ -17,19 +17,19 @@
 #' # Using periods for visibility
 #' str_indent(x, indent_character = '.')
 #' # Both parameters changed
-#' str_indent(x, indent_level = 6, indent_character = '.')
+#' str_indent(x, indent_level = 6, indent_character = '-')
 
 str_indent <- function(x, indent_level = 3, indent_character = ' ') {
   # If vector not atomic, turns it into a single string separated by newlines
   if (length(x) >= 2) {
-    xcat <- paste(x, collapse = "\n")
+    x <- paste(x, collapse = "\n")
   }
   if (indent_level < 0) {
     stop("Invalid indent level, indent_level must be zero or positive.")
   }
   # Create a "tab" string out of 3 spaces or other character
   indent <- paste(rep(indent_character, indent_level), collapse = '')
-  cat(gsub("(?m)^", indent, xcat, perl = TRUE))
+  return(gsub("(?m)^", indent, x, perl = TRUE))
   # perl must be TRUE to use regular expressions in baser
 }
 
