@@ -1,7 +1,7 @@
 #' Split up strings
 #'
 #' @description
-#' `str_spaceout()` adds a space wherever a lowercase letter is followed by an 
+#' `str_space()` adds a space wherever a lowercase letter is followed by an 
 #' uppercase letter, with modifiable functionality for special cases.
 #'
 #' @param split_style controls the placement of splits and can be 
@@ -20,16 +20,16 @@
 #' @examples
 #' input <- "XMLHTTPRequestAndHTMLParser"
 #' # Default splitting
-#' str_spaceout(input, split_style = "default")
+#' str_space(input, split_style = "default")
 #' # Split acronyms
-#' str_spaceout(input, split_style = "acronyms")
+#' str_space(input, split_style = "acronyms")
 #' # Split all consecutive uppercase letters
-#' str_spaceout(input, split_style = "allcaps")
+#' str_space(input, split_style = "allcaps")
 #' # Split every character
-#' str_spaceout(input, split_style = "everything")
+#' str_space(input, split_style = "everything")
 #'
 
-str_spaceout <- function(x, split_style = "default", split_char = " ") {
+str_space <- function(x, split_style = "default", split_char = " ") {
   if (split_style == "acronyms") {
     # Splits at lowercase-uppercase and between two uppercase letters followed by lowercase
     str_replace_all(x, "(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])", split_char)
